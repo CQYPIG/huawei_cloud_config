@@ -21,3 +21,22 @@ spring:
         max-idle: 10
         # 最小空闲
         min-idle: 5
+        # 修改暴露的端口  让自己的变化能被别人发现，好像是让自己的监控那个模块下面的请求可以被访问
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+eureka:
+  instance:
+    hostname: localhost #eure服务端的实例名称
+  client:
+    # false表示不向注册中心注册自己
+    register-with-eureka: true
+    # 表示自己端就是注册中心，我们就是用来维护服务的实例的，并不需要去检索服务
+    fetch-registry: true
+    # 设置与eureka server交互的地址查询服务和注册服务都需要依赖这个地址
+    service-url:
+      # 在客户端中这里写的是eureka server的地址，单机版的eureka中这里写的是他自己
+      defaultZone: http://localhost:7001/eureka
