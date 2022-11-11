@@ -1,6 +1,6 @@
 spring:
   # 设置数据库连接解基本信息
-  datasource:https://github.com/CQYPIG/huawei_cloud_config/blob/master/application.yml
+  datasource:
     url: jdbc:mysql://localhost:3306/huawei
     username: root
     password: 123456
